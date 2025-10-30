@@ -14,7 +14,7 @@ public:
             if((cur < 0 && prev > 0) || (cur > 0 && prev < 0)){
                 operation += abs(cur);
             }else if(abs(cur) > abs(prev)){
-                operation += (abs(cur) - abs(prev));
+                operation += abs(cur - prev);
             }
             prev = cur;
         }
