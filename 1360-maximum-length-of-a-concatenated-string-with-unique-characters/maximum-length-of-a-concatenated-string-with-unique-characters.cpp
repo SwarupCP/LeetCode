@@ -18,7 +18,7 @@ public:
 
         return false;
     }
-    int solve(int i, string temp, int n, vector<string>& arr, unordered_map<string, int>& mp){
+    int solve(int i, string temp, int n, vector<string>& arr){
         if(i >= n){
             return temp.length();
         }
@@ -26,23 +26,18 @@ public:
         int include = 0;
         int exclude = 0;
 
-        if(mp.find(temp) != mp.end()){
-            return mp[temp];
-        }
-
         if(hasDuplicate(arr[i], temp)){
-            exclude = solve(i + 1, temp, n, arr, mp);
+            exclude = solve(i + 1, temp, n, arr);
         }else{
-            exclude = solve(i + 1, temp, n, arr, mp);
-            include = solve(i + 1, temp + arr[i], n, arr, mp);
+            exclude = solve(i + 1, temp, n, arr);
+            include = solve(i + 1, temp + arr[i], n, arr);
         }
 
-        return mp[temp] = max(include, exclude);
+        return max(include, exclude);
     }
     int maxLength(vector<string>& arr) {
         int n = arr.size();
         string temp = "";
-        unordered_map<string, int> mp;
-        return solve(0, temp, n, arr, mp);
+        return solve(0, temp, n, arr);
     }
 };
