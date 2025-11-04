@@ -9,7 +9,6 @@ public:
             for(int i = 1; i <= nums[idx] && (idx + i < n); i++){
                 if(dp[idx + i] == true){
                     dp[idx] = true;
-                    break;
                 }
             }
         }
