@@ -3,9 +3,10 @@ public:
     int minFlipsMonoIncr(string s) {
         int n = s.size();
 
-        vector<int> prev(2, 0), cur(2, 0);
+        vector<int> cur(2, 0);
 
         for(int i = n - 1; i >= 0; i--){
+            vector<int> prev(2, 0);
             for(int prev_val = 1; prev_val >= 0; prev_val--){
                 int flip = INT_MAX;
                 int notFlip = INT_MAX;
