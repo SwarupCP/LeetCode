@@ -30,6 +30,6 @@ public:
             prev = cur;
         }
 
-        return prev[0];
+        return cur[0];
     }
 };
