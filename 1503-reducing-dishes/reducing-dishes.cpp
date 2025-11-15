@@ -16,6 +16,6 @@ public:
             next = cur;
         }
 
-        return cur[1];
+        return next[1];
     }
 };
