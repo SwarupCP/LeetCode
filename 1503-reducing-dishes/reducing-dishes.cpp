@@ -18,7 +18,7 @@ public:
     int maxSatisfaction(vector<int>& satisfaction) {
         n = satisfaction.size();
         sort(satisfaction.begin(), satisfaction.end());
-        vector<vector<int>> dp(n + 1, vector<int>(n + 1, -1));
+        vector<vector<int>> dp(n, vector<int>(n + 1, -1));
         return solve(0, 1, satisfaction, dp);
     }
 };
