@@ -3,9 +3,10 @@ public:
     int maxValueOfCoins(vector<vector<int>>& piles, int k) {
         int n = piles.size();
 
-        vector<int> cur(k + 1, 0), next(k + 1, 0);
+        vector<int> next(k + 1, 0);
 
         for(int i = n - 1; i >= 0; i--){
+            vector<int> cur(k + 1, 0);
             for(int j = k; j >= 1; j--){
                 int notTaken = next[j];
                 int taken = 0;
