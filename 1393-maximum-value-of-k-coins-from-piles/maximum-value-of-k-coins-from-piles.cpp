@@ -12,10 +12,10 @@ public:
                 int taken = 0;
                 int sum = 0;
 
-                for(int k = 0; k < min((int)piles[i].size(), j); k++){
-                    sum += piles[i][k];
+                for(int x = 0; x < min((int)piles[i].size(), j); x++){
+                    sum += piles[i][x];
 
-                    taken = max(taken, sum + next[j - (k + 1)]);
+                    taken = max(taken, sum + next[j - (x + 1)]);
                 }
 
                 cur[j] = max(taken, notTaken);
