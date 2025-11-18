@@ -6,7 +6,7 @@ public:
         int k = words[0].length();
 
         vector<vector<long long>> freq(26, vector<long long>(k));
-        vector<vector<int>> dp(m + 1, vector<int>(k + 1, 0));
+        vector<int> cur(k + 1, 0), next(k + 1, 0);
 
         for(int col = 0; col < k; col++){
             for(string &word : words){
@@ -15,19 +15,20 @@ public:
             }
         }
 
-        for (int j = 0; j <= k; j++) {
-            dp[m][j] = 1;
+        for(int j = 0; j <= k; j++){
+            next[j] = 1;
         }
 
         for(int i = m - 1; i >= 0; i--){
             for(int j = k - 1; j >= 0; j--){
-                int notTaken = dp[i][j + 1] % MOD;
-                int taken = (freq[target[i] - 'a'][j] * dp[i + 1][j + 1]) % MOD;
+                int notTaken = cur[j + 1] % MOD;
+                int taken = (freq[target[i] - 'a'][j] * next[j + 1]) % MOD;
 
-                dp[i][j] = (notTaken + taken) % MOD;
+                cur[j] = (notTaken + taken) % MOD;
             }
+            next = cur;
         }
 
-        return dp[0][0];
+        return next[0];
     }
 };
