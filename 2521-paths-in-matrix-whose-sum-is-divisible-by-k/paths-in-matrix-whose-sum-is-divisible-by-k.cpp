@@ -23,7 +23,7 @@ public:
     int numberOfPaths(vector<vector<int>>& grid, int k) {
         m = grid.size();
         n = grid[0].size();
-        vector<vector<vector<int>>> dp(m + 1, vector<vector<int>>(n + 1, vector<int>(k + 1, -1)));
+        vector<vector<vector<int>>> dp(m, vector<vector<int>>(n, vector<int>(k + 1, -1)));
         return solve(0, 0, 0, k, grid, dp);
     }
 };
