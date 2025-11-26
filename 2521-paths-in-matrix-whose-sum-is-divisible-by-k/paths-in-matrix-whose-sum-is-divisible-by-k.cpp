@@ -16,15 +16,9 @@ public:
             for(int j = n - 1; j >= 0; j--){
                 if(i == m - 1 && j == n - 1) continue; 
                 for(int curSum = 0; curSum < k; curSum++){
-                    int down = 0;
-                    if(i + 1 < m){
-                        down = dp[i + 1][j][(curSum + grid[i][j]) % k] % MOD;
-                    }
-                    int right = 0;
-                    if(j + 1 < n){
-                        right = dp[i][j + 1][(curSum + grid[i][j]) % k] % MOD;
-                    }
-
+                    int down = dp[i + 1][j][(curSum + grid[i][j]) % k] % MOD;
+                    int right = dp[i][j + 1][(curSum + grid[i][j]) % k] % MOD;
+            
                     dp[i][j][curSum] = (down + right) % MOD;
                 }
             }
