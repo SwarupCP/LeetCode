@@ -4,7 +4,7 @@ public:
     int numberOfPaths(vector<vector<int>>& grid, int k) {
         int m = grid.size();
         int n = grid[0].size();
-        vector<vector<vector<int>>> dp(m, vector<vector<int>>(n, vector<int>(k, 0)));
+        vector<vector<vector<int>>> dp(m + 1, vector<vector<int>>(n + 1, vector<int>(k + 1, 0)));
 
         for(int curSum = 0; curSum < k; curSum++){
             if(((curSum + grid[m - 1][n - 1]) % k) == 0){
@@ -29,7 +29,7 @@ public:
                 }
             }
         }
-        
+
         return dp[0][0][0];
     }
 };
