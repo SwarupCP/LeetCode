@@ -2,7 +2,7 @@ class Solution {
 public:
     int n;
     const int MOD = 1e9 + 7;
-    int solve(int start, string &s, int &k, vector<int>& dp){
+    int solve(int start, string &s, int k, vector<int>& dp){
         if(start >= n){
             return 1;
         }
