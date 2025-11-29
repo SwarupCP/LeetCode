@@ -5,7 +5,7 @@ public:
         vector<vector<int>> dp(n + 1, vector<int>(n + 1, 0));
 
         for(int i = n - 2; i >= 0; i--){
-            for(int j = i + 1; j < n; j++){
+            for(int j = i + 1; j <= n - 1; j++){
                 if(s[i] == s[j]){
                     dp[i][j] = dp[i + 1][j - 1];
                 }else{
